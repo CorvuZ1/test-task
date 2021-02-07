@@ -1,0 +1,39 @@
+.Login {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.Login__inner {
+  box-sizing: border-box;
+  padding: 50px 25px;
+  display: flex;
+  height: 350px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(59, 59, 59);
+  border-radius: 10px;
+  position: relative;
+}
+
+.Login__title {
+  color: white;
+}
+
+.Login__message {
+  position: absolute;
+  top: 0;
+  margin-top: 12px;
+  padding: 0 12.5px;
+  text-align: center;
+  font-size: 16px;
+}

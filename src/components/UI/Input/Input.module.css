@@ -1,0 +1,30 @@
+:root {
+  --grey: rgb(161, 161, 161);
+}
+
+.Input {
+  color: var(--grey);
+  border: 2px solid var(--grey);
+  background-color: transparent;
+  border-radius: 5px;
+  height: 35px;
+  width: 100%;
+  padding-left: 12px;
+  box-sizing: border-box;
+  transition-duration: 0.3s;
+  font-size: 15px;
+}
+
+.Input::placeholder {
+  color: var(--grey);
+}
+
+.Input:focus {
+  border: 2px solid white;
+  color: white;
+}
+
+.Input:focus::placeholder {
+  color: white;
+  transition-duration: 0.3s;
+}
