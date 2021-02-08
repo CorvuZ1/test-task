@@ -1,6 +1,7 @@
 import {useEffect} from "react"
 import classes from "./Header.module.css";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
 const Header = props => {
 
@@ -9,6 +10,18 @@ const Header = props => {
     {to: '/news', label: 'Новости', exact: false}
   ]
   
+  function isAuth() {
+    if ((localStorage.getItem("isAuth") === "true")) {
+      links.push({to: '/profile', label: 'Профиль', exact: false})
+    } else {
+      links.push({to: '/login', label: 'Профиль', exact: false})
+    }
+  }
+
+  useEffect(() => {
+    isAuth()
+  },[props.isAuth])
+
   const renderLinks = links => {
     return links.map((link, index) => {
       return (
@@ -26,19 +39,23 @@ const Header = props => {
     })
   }
 
-  if ((localStorage.getItem("isAuth") === "true")) {
-    links.push({to: '/profile', label: 'Профиль', exact: false})
-  } else {
-    links.push({to: '/login', label: 'Профиль', exact: false})
-  }  
-
   return (
-    <header className={classes.Header}>
-      <ul type="none" className={classes.Header__inner}>
-        {renderLinks(links)}
-      </ul>
-    </header>
+    <>
+      {isAuth()}
+      <header className={classes.Header}>
+        <ul type="none" className={classes.Header__inner}>
+          {renderLinks(links)}
+        </ul>
+      </header>
+    </>
   )
 }
 
-export default Header;
+function mapStateToProps(state) {
+  console.log(state)
+  return {
+    isAuth: state.auth.isAuth
+  }
+}
+
+export default connect(mapStateToProps, null)(Header);

@@ -4,6 +4,7 @@ export const SIGN_IN_FAIL = "SIGN_IN_FAIL";
 export function signInSuccess(status) {
   return dispatch => {
     if (status) {
+      localStorage.setItem("isAuth", status)
       dispatch({
         type: SIGN_IN_SUCCESS,
         payload: {

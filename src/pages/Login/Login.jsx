@@ -77,9 +77,7 @@ const Login = props => {
   const btnClickHandler = () => {
     if (trueData() && formValid) {
       props.signInSuccess(true);
-      setTimeout(() => {
-        props.history.push("/profile");
-      }, 0);
+      props.history.push("/profile");
     } else {
       props.signInSuccess(false);
     }
@@ -117,7 +115,6 @@ const Login = props => {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     isAuth: state.auth.isAuth,
     message: state.auth.message
