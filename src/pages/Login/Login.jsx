@@ -76,12 +76,12 @@ const Login = props => {
 
   const btnClickHandler = () => {
     if (trueData() && formValid) {
-      props.signInSuccess(true)
+      props.signInSuccess(true);
       setTimeout(() => {
-        window.location.href = "/test-task/profile"
-      }, 3000);
+        props.history.push("/profile");
+      }, 0);
     } else {
-      props.signInSuccess(false)
+      props.signInSuccess(false);
     }
   }
 
@@ -90,8 +90,6 @@ const Login = props => {
 
     if (props.isAuth) {
       localStorage.setItem("isAuth", props.isAuth);
-    } else {
-      localStorage.setItem("isAuth", false);
     }
   },[props.message, props.isAuth])
 
@@ -119,6 +117,7 @@ const Login = props => {
 }
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
     isAuth: state.auth.isAuth,
     message: state.auth.message

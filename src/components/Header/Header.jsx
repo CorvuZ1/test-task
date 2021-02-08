@@ -1,11 +1,12 @@
+import {useEffect} from "react"
 import classes from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 
 const Header = props => {
 
   const links = [
-    {to: '/test-task', label: 'Главная', exact: true},
-    {to: '/test-task/news', label: 'Новости', exact: false}
+    {to: '/', label: 'Главная', exact: true},
+    {to: '/news', label: 'Новости', exact: false}
   ]
   
   const renderLinks = links => {
@@ -26,10 +27,10 @@ const Header = props => {
   }
 
   if ((localStorage.getItem("isAuth") === "true")) {
-    links.push({to: '/test-task/profile', label: 'Профиль', exact: false})
+    links.push({to: '/profile', label: 'Профиль', exact: false})
   } else {
-    links.push({to: '/test-task/login', label: 'Профиль', exact: false})
-  }
+    links.push({to: '/login', label: 'Профиль', exact: false})
+  }  
 
   return (
     <header className={classes.Header}>
