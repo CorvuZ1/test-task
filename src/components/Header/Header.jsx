@@ -41,9 +41,9 @@ const Header = props => {
 
   return (
     <>
-      {isAuth()}
       <header className={classes.Header}>
         <ul type="none" className={classes.Header__inner}>
+          {isAuth()}
           {renderLinks(links)}
         </ul>
       </header>
